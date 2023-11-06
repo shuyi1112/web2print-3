@@ -1,0 +1,252 @@
+body {
+    display: flex;
+    min-width: 100px;
+   
+    background-color: #5DA449;
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* full viewport height */
+    margin: 0;
+}
+
+#board {
+    position: sticky;
+    top: 1em;
+    width: 100vw;
+    height: 40vw;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: calc(100vh - 2em);
+    max-height: calc(100vh - 2em);
+    overflow: hidden;
+    border: 12px solid #ffd46f;
+    border-radius: 12px;
+}
+
+
+#garden {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+
+.grid-item {
+    background-color: #ddd;
+    padding: 20px;
+    border: 1px solid #666;
+    text-align: center;
+}
+
+.table {
+    background-color: #368aff;
+  
+    position:absolute;
+    
+    margin-top: 65%;
+    margin-left: 60%;
+    transform: translate(-60%, -60%);  /* 确保中心对齐 */
+    width: 100%;  
+    height: 40%;
+    
+}
+
+.toaster {
+    position: absolute;
+    margin-top: 48%;
+    margin-left: 58%;
+    width: 30%;
+    height: 25%;
+    background-color: #FFE458;
+    transform: translateY(-60%);
+    z-index: 1;
+}
+
+.board-machine {
+    position: absolute;
+    top: 70%; 
+   margin-left: 55%;
+    width: 3%;
+    height: 2%;
+    background-color: #696767;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.flower {
+    position: absolute;
+    margin-top: 5%;
+    margin-left:15%;
+   
+    flex-direction: column;
+}
+
+.flower .square {
+    width: 56px;
+    height: 56px;
+    background-color: #FFB2B2;
+    margin: 2px;
+}
+
+.flower .center {
+    background-color: #FF5959;
+    display: flex;
+    align-items: center;
+}
+
+.flower .left, .flower .right {
+    position: absolute;
+    top: 58px; 
+}
+
+.flower .left {
+    left: -58px; 
+}
+
+.flower .right {
+    right: -58px; 
+}
+
+.leaf {
+    position: absolute;
+    margin-top:25%;
+    margin-left:20%;
+    width: 30px;
+    height: 80px;
+    background-color: #7ECD6B;
+    clip-path: ellipse(50% 50% at 50% 50%); 
+    transform: rotate(30deg);
+}
+
+
+
+.rectangle {
+    position: absolute; 
+    top: 70%; 
+    margin-left:16%;
+    width:8%;
+    height:40%;
+   
+    background-color: #FFA3D4;
+    transform: translateY(-50%); 
+}
+
+.green-disk {
+    width: 333px;
+    height: 165px;
+    background-color: #21A045;
+    position: absolute;
+    bottom: calc(50% - 300px); 
+    left: 50%;
+    
+    transform: translateX(-50%); 
+    border-radius: 50%; 
+    z-index: 4; 
+}
+
+
+.green-cup {
+    width: 10%;
+    height: 20%;
+    background-color: #21A045;
+    position: absolute;
+    margin-left:35%;
+    margin-top:40%;
+    z-index: 5; 
+
+    &:before {
+        content: "";
+        width: 30px;  
+        height: 60px;  
+        border: 8px solid #21A045;  
+        border-top-left-radius: 40px;  
+        border-top-right-radius: 40px;  
+        border-bottom: 0;  
+        position: absolute;
+        left: -38px;  
+        top: 10px; 
+        background-color: transparent;  
+        z-index: 6;  
+    }
+}
+
+.disk-link {
+    position: absolute;
+    width: 333px;
+    height: 165px;
+    bottom: calc(50% - 300px); 
+    left: calc(50% - 160px);  
+    z-index: 7;
+    cursor: pointer;
+    outline: none;  
+}
+
+.window-frame {
+    position: absolute;
+    margin-top: 0%;
+    margin-left:60%; 
+    width: 400px;
+    height: 175px;
+    background-color: #CC9C63;
+}
+.window-glass {
+    margin-top:auto;
+    margin-left:auto;
+    width: 390px;
+    height: 160px;
+    background-color: #b3ecf8;  
+    position: relative; 
+    overflow: hidden;   
+}
+
+.cloud {
+    width: 100px; 
+    height: 80px;
+    background-color: #FFFFFF;
+    border-radius: 100px 50px; 
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    transform: translateY(-50%);
+}
+
+
+.toast {
+    position: absolute;
+   margin-top:30%;
+   margin-left:62%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    z-index: 0;
+
+    animation: toastAnimation 4s infinite; 
+}
+
+.toast-top {
+    width: 150px;
+    height: 28px;
+    background-color: #FABA5C;
+}
+
+.toast-bottom {
+    width: 112px;
+    height: 112px;
+    background-color: #FABA5C;
+    margin-top: 0;
+}
+
+@keyframes toastAnimation {
+    0%, 100% {
+        top: calc(50% - 196px/2 - 28px - 112px);
+    }
+    50% {
+        top: calc(50% - 196px/2 - 28px - 112px - 196px);
+    }
+}
+
+

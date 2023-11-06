@@ -1,0 +1,304 @@
+body {
+    display: flex;
+    min-width: 100px;
+   
+    background-color: #607591;
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* full viewport height */
+    margin: 0;
+}
+
+#board {
+    position: sticky;
+    top: 1em;
+    width: 100vw;
+    height: 40vw;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: calc(100vh - 2em);
+    max-height: calc(100vh - 2em);
+    overflow: hidden;
+    border: 12px solid #ffd46f;
+    border-radius: 12px;
+}
+
+
+#garden {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+
+.grid-item {
+    background-color: #ddd;
+    padding: 20px;
+    border: 1px solid #666;
+    text-align: center;
+}
+
+.table {
+    background-color: #368aff;
+  
+    position:absolute;
+    
+    margin-top: 65%;
+    margin-left: 60%;
+    transform: translate(-60%, -60%); 
+    width: 100%;  
+    height: 40%;
+    
+}
+
+.toaster {
+    position: absolute;
+    margin-top: 48%;
+    margin-left: 58%;
+    width: 30%;
+    height: 25%;
+    background-color: #FFE458;
+    transform: translateY(-60%);
+    z-index: 1;
+}
+
+.board-machine {
+    position: absolute;
+    top: 70%; 
+   margin-left: 55%;
+    width: 3%;
+    height: 2%;
+    background-color: #696767;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.flower {
+    position: absolute;
+    margin-top: 5%;
+    margin-left:15%;
+   
+    flex-direction: column;
+}
+
+.flower .square {
+    width: 56px;
+    height: 56px;
+    background-color: #9e6868;
+    margin: 2px;
+}
+
+.flower .center {
+    background-color: #b62f2f;
+    display: flex;
+    align-items: center;
+}
+
+.flower .square.left {
+    animation: fallAndRise 6s infinite;
+}
+
+
+@keyframes fallAndRise {
+    0%, 100% {
+        top: 58px; 
+    }
+    50% {
+        top: calc(100% + 150px); 
+    }
+}
+
+
+.flower .left, .flower .right {
+    position: absolute;
+    top: 58px; 
+}
+
+.flower .left {
+    left: -58px; 
+}
+
+.flower .right {
+    right: -58px; 
+}
+
+.leaf {
+    position: absolute;
+    margin-top:25%;
+    margin-left:20%;
+    width: 30px;
+    height: 80px;
+    background-color: #7ECD6B;
+    clip-path: ellipse(50% 50% at 50% 50%); 
+    transform: rotate(30deg);
+}
+
+
+
+.rectangle {
+    position: absolute; 
+    top: 70%; 
+    margin-left:16%;
+    width:8%;
+    height:40%;
+   
+    background-color: #FFA3D4;
+    transform: translateY(-50%); 
+}
+
+.green-disk {
+    width: 333px;
+    height: 165px;
+    background-color: #21A045;
+    position: absolute;
+    bottom: calc(50% - 300px); 
+    left: 50%;
+    
+    transform: translateX(-50%); 
+    border-radius: 50%; 
+    z-index: 4; 
+}
+
+
+.green-cup {
+    width: 10%;
+    height: 20%;
+    background-color: #21A045;
+    position: absolute;
+    margin-left:35%;
+    margin-top:40%;
+    z-index: 5; 
+
+    &:before {
+        content: "";
+        width: 30px;  
+        height: 60px;  
+        border: 8px solid #21A045;  
+        border-top-left-radius: 40px;  
+        border-top-right-radius: 40px;  
+        border-bottom: 0;  
+        position: absolute;
+        left: -38px;  
+        top: 10px; 
+        background-color: transparent;  
+        z-index: 6;  
+    }
+}
+
+.disk-link {
+    position: absolute;
+    width: 333px;
+    height: 165px;
+    bottom: calc(50% - 300px); 
+    left: calc(50% - 160px);  
+    z-index: 7;
+    cursor: pointer;
+    outline: none;  
+}
+
+.window-frame {
+    position: absolute;
+    margin-top: 0%;
+    margin-left:60%; 
+    width: 400px;
+    height: 175px;
+    background-color: #CC9C63;
+}
+.window-glass {
+    margin-top:auto;
+    margin-left:auto;
+    width: 390px;
+    height: 160px;
+    background-color: #21487c;  
+    position: relative; 
+    overflow: hidden;   
+}
+
+@keyframes moveCloud {
+    0%, 100% {
+        right: 10%;
+    }
+    50% {
+        right: 90%;
+    }
+}
+
+
+.window-glass::before {
+    animation-duration: 1.2s;
+    animation-delay: 0.5s;
+}
+
+.window-glass::after {
+    animation-duration: 1.7s;
+    animation-delay: 0.8s;
+}
+
+.window-glass::before,
+.window-glass::after {
+    content: "★"; 
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    animation: starBlink 1.5s infinite alternate;
+}
+
+.window-glass::before {
+    top: 10%;
+    left: 20%;
+}
+
+.window-glass::after {
+    top: 40%;
+    left: 70%;
+}
+
+
+@keyframes starBlink {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
+
+.choco-jar {
+    position: absolute;
+    margin-left: 75%;
+    bottom: 75px;
+    z-index: 3;
+    transition: transform 0.4s ease;
+}
+
+.choco-jar:hover {
+    transform: scale(1.1) rotate(15deg);
+}
+
+.jar-lid {
+    width: 60px;
+    height: 20px;
+    background-color: #808080;
+    position: relative;
+    z-index: 3;
+}
+
+.jar-body {
+    width: 58px;
+    height: 75px;
+    background-color: #825E34;
+    z-index: 3;
+    position: relative;
+    margin-top: -60px; 
+}
+
+
+
+
+
